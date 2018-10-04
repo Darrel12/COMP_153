@@ -23,6 +23,7 @@ class Model
 
 		TexModel tiger;
 		TexModel pacific;
+		TexModel topOfBoard;
 
 	public:
 		Model();

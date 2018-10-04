@@ -27,6 +27,8 @@ class Model
 		TexModel bottomOfBoard;
 		TexModel leftSide;
 		TexModel rightSide;
+		TexModel leftCap;
+		TexModel rightCap;
 
 
 

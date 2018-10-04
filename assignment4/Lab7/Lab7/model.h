@@ -24,6 +24,12 @@ class Model
 		TexModel tiger;
 		TexModel pacific;
 		TexModel topOfBoard;
+		TexModel bottomOfBoard;
+		TexModel leftSide;
+		TexModel rightSide;
+
+
+
 
 	public:
 		Model();

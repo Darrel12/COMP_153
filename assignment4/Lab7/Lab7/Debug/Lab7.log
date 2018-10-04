@@ -1,0 +1,44 @@
+﻿  LoadShaders.cpp
+  main.cpp
+  model.cpp
+  quad.cpp
+  texmodel.cpp
+  texture.cpp
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 4\comp_153\assignment4\lab7\lab7\texture.cpp(116): warning C4309: '=': truncation of constant value
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 4\comp_153\assignment4\lab7\lab7\texture.cpp(118): warning C4309: '=': truncation of constant value
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 4\comp_153\assignment4\lab7\lab7\texture.cpp(120): warning C4309: '=': truncation of constant value
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 4\comp_153\assignment4\lab7\lab7\texture.cpp(122): warning C4309: '=': truncation of constant value
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 4\comp_153\assignment4\lab7\lab7\texture.cpp(129): warning C4309: '=': truncation of constant value
+  viewcontroller.cpp
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 4\comp_153\assignment4\lab7\lab7\viewcontroller.cpp(82): warning C4244: '=': conversion from 'Sint32' to 'float', possible loss of data
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 4\comp_153\assignment4\lab7\lab7\viewcontroller.cpp(83): warning C4244: '=': conversion from 'Sint32' to 'float', possible loss of data
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 4\comp_153\assignment4\lab7\lab7\viewcontroller.cpp(107): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 4\comp_153\assignment4\lab7\lab7\viewcontroller.cpp(108): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+model.obj : warning LNK4217: locally defined symbol _glewInit@0 imported in function "public: bool __thiscall Model::init(void)" (?init@Model@@QAE_NXZ)
+model.obj : warning LNK4217: locally defined symbol _glewGetErrorString@4 imported in function "public: bool __thiscall Model::init(void)" (?init@Model@@QAE_NXZ)
+model.obj : warning LNK4049: locally defined symbol ___glewGetUniformLocation imported
+model.obj : warning LNK4049: locally defined symbol ___glewUniformMatrix4fv imported
+model.obj : warning LNK4049: locally defined symbol ___glewUseProgram imported
+quad.obj : warning LNK4049: locally defined symbol ___glewBindBuffer imported
+texmodel.obj : warning LNK4049: locally defined symbol ___glewBindBuffer imported
+quad.obj : warning LNK4049: locally defined symbol ___glewBufferData imported
+texmodel.obj : warning LNK4049: locally defined symbol ___glewBufferData imported
+quad.obj : warning LNK4049: locally defined symbol ___glewGenBuffers imported
+texmodel.obj : warning LNK4049: locally defined symbol ___glewGenBuffers imported
+quad.obj : warning LNK4049: locally defined symbol ___glewEnableVertexAttribArray imported
+texmodel.obj : warning LNK4049: locally defined symbol ___glewEnableVertexAttribArray imported
+quad.obj : warning LNK4049: locally defined symbol ___glewVertexAttrib4f imported
+texmodel.obj : warning LNK4049: locally defined symbol ___glewVertexAttrib4f imported
+quad.obj : warning LNK4049: locally defined symbol ___glewVertexAttribPointer imported
+texmodel.obj : warning LNK4049: locally defined symbol ___glewVertexAttribPointer imported
+quad.obj : warning LNK4049: locally defined symbol ___glewBindVertexArray imported
+texmodel.obj : warning LNK4049: locally defined symbol ___glewBindVertexArray imported
+quad.obj : warning LNK4049: locally defined symbol ___glewGenVertexArrays imported
+texmodel.obj : warning LNK4049: locally defined symbol ___glewGenVertexArrays imported
+texmodel.obj : warning LNK4049: locally defined symbol ___glewActiveTexture imported
+texmodel.obj : warning LNK4049: locally defined symbol ___glewGenerateMipmap imported
+texmodel.obj : warning LNK4049: locally defined symbol ___glewTexStorage2D imported
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\assignment 4\COMP_153\assignment4\Lab7\Debug\vc120.pdb'; linking object as if no debug info
+  Lab7.vcxproj -> C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\assignment 4\COMP_153\assignment4\Lab7\Debug\Lab7.exe

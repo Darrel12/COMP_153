@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>U:\GLM\glm-0.9.9.0\glm\glm;U:\SDL\SDL2-devel-2.0.8-VC\SDL2-2.0.8\include;U:\GLEW\glew-2.1.0-win32\glew-2.1.0\include\GL;$(IncludePath)</IncludePath>
-    <LibraryPath>U:\SDL\SDL2-devel-2.0.8-VC\SDL2-2.0.8\lib\x86;U:\GLEW\glew-2.1.0-win32\glew-2.1.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\glm\glm;C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\SDL\SDL2-devel-2.0.8-VC\SDL2-2.0.8\include;C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\GDL\glew-2.1.0-win32\glew-2.1.0\include\GL;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\SDL\SDL2-devel-2.0.8-VC\SDL2-2.0.8\lib\x86;C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\GDL\glew-2.1.0-win32\glew-2.1.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

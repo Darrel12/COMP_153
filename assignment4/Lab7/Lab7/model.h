@@ -29,6 +29,7 @@ class Model
 		TexModel rightSide;
 		TexModel leftCap;
 		TexModel rightCap;
+		TexModel leftWheelFront;
 
 
 

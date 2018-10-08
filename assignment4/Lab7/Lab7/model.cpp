@@ -77,6 +77,7 @@ bool Model::init()
 	rightSide.init("images/yellow.bmp", green);
 	leftCap.init("images/blue.bmp", green);
 	rightCap.init("images/blue.bmp", green);
+	leftWheelFront.init("images/blue.bmp", green);
 
 	//Find the location of the PVM_matrix in the shader
 	PVM_matrixLoc = glGetUniformLocation(program, "PVM_matrix");
@@ -146,6 +147,18 @@ void Model::draw(float xAngle, float yAngle)
 	PVMmatrix = projection_matrix * view_matrix * model_matrix;
 	glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
 	rightCap.draw();
+
+	//PVM_matrixLoc = 0;
+	//model_matrix = mat4(1.0);
+	//view_matrix = mat4(1.0);
+	//projection_matrix = mat4(1.0);
+	//below is for the wheels
+	model_matrix = translate(model_matrix, vec3(1.0f, -7.0f, -0.3f));
+	model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(0.0f, 1.0f, 0.0f));
+	model_matrix = scale(model_matrix, vec3(0.1f, 5.0f, 2.0f));
+	PVMmatrix = projection_matrix * view_matrix * model_matrix;
+	glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
+	leftWheelFront.draw();
 
 	glFlush();
 }

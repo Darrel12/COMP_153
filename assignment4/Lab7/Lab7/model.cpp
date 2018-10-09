@@ -79,6 +79,8 @@ bool Model::init()
 	rightCap.init("images/blue.bmp", green);
 	leftWheelFront.init("images/blue.bmp", green);
 
+	wheelTest.init();
+
 	//Find the location of the PVM_matrix in the shader
 	PVM_matrixLoc = glGetUniformLocation(program, "PVM_matrix");
 
@@ -159,6 +161,8 @@ void Model::draw(float xAngle, float yAngle)
 	PVMmatrix = projection_matrix * view_matrix * model_matrix;
 	glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
 	leftWheelFront.draw();
+
+	wheelTest.draw();
 
 	glFlush();
 }

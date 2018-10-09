@@ -11,6 +11,7 @@
 #include <glew.h> //glew.h is supposed to be included before gl.h.  To be safe, you can just include glew.h instead
 #include <glm.hpp>
 #include "texmodel.h"
+#include "wheel.h"
 using namespace glm;
 
 class Model
@@ -30,6 +31,7 @@ class Model
 		TexModel leftCap;
 		TexModel rightCap;
 		TexModel leftWheelFront;
+		wheel wheelTest;
 
 
 

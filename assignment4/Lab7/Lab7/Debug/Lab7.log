@@ -1,2 +1,6 @@
-﻿  model.cpp
+﻿  wheel.cpp
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 4\comp_153\assignment4\lab7\lab7\wheel.cpp(13): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 4\comp_153\assignment4\lab7\lab7\wheel.cpp(21): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 4\comp_153\assignment4\lab7\lab7\wheel.cpp(45): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 4\comp_153\assignment4\lab7\lab7\wheel.cpp(46): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
   Lab7.vcxproj -> C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\assignment 4\COMP_153\assignment4\Lab7\Debug\Lab7.exe

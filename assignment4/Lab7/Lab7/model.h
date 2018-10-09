@@ -31,7 +31,12 @@ class Model
 		TexModel leftCap;
 		TexModel rightCap;
 		TexModel leftWheelFront;
-		wheel wheelTest;
+		wheel WheelLeftFrontCircle;
+		wheel WheelRightFrontCircle;
+		wheel WheelLeftBackCircle;
+		wheel WheelRightBackCircle;
+
+
 
 
 

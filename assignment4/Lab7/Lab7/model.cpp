@@ -22,7 +22,10 @@ Model::Model()
 	model_matrix = mat4(1.0);
 	view_matrix = mat4(1.0);
 	projection_matrix = mat4(1.0);
+
 	isSpinning = false;
+	bool spinningToggle = false;
+	
 
 
 }
@@ -103,11 +106,15 @@ bool Model::init()
 
 void Model::Animate() {
 	cout << "w";
-	if (isSpinning == false){
-		isSpinning = true;
-	}
-	else {
-		isSpinning = false;
+	if (spinningToggle == true) {
+
+		if (isSpinning == false) {
+			isSpinning = true;
+		}
+		else {
+			isSpinning = false;
+		}
+		
 	}
 	
 }
@@ -180,7 +187,7 @@ void Model::draw(float xAngle, float yAngle)
 	glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
 	//leftWheelFront.draw();
 
-	if (isSpinning) {
+	if (isSpinning && spinningToggle) {
 		// front left
 		model_matrix = translate(model_matrix, vec3(1.0f, -0.1f, 0.2f));
 		model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
@@ -213,6 +220,8 @@ void Model::draw(float xAngle, float yAngle)
 		PVMmatrix = projection_matrix * view_matrix * model_matrix;
 		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
 		WheelRightBackCircle.draw();
+
+		isSpinning = false;
 	}
 	else {
 		// front left
@@ -240,6 +249,7 @@ void Model::draw(float xAngle, float yAngle)
 		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
 		WheelRightBackCircle.draw();
 
+		isSpinning = true;
 	}
 
 

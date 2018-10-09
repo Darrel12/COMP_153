@@ -14,6 +14,7 @@ class Viewcontroller
 	private:
 		bool quit;
 
+
 		//Variables to help control the mouse rotation 
 		bool ROTATING;
 		float baseX, baseY;

@@ -21,11 +21,13 @@ using namespace std;
 const int WINDOWWIDTH = 800;
 const int WINDOWHEIGHT = 800;
 
+
 Viewcontroller::Viewcontroller()
 {
 	quit = false;
 	window = 0;
 	ogl4context = 0;
+
 
 	ROTATING = false;
 	xAngle = yAngle = 0.0;
@@ -59,6 +61,7 @@ bool Viewcontroller::init()
 //Display what we want to see in the graphics window
 void Viewcontroller::display()
 {
+
 	m.draw(xAngle, yAngle);
 
 	SDL_GL_SwapWindow(window);
@@ -76,6 +79,13 @@ bool Viewcontroller::handleEvents(SDL_Event *theEvent)
 		case SDL_KEYDOWN:  //user clicked on the 'X' in the window
 		{
 			if (theEvent->key.keysym.sym == SDLK_DOWN) {
+
+				if (m.spinningToggle == false) {
+					m.spinningToggle = true;
+				}
+				else {
+					m.spinningToggle = false;
+				}
 				m.Animate();
 
 				cout << "arrow down \n";

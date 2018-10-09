@@ -73,6 +73,15 @@ bool Viewcontroller::handleEvents(SDL_Event *theEvent)
 		{
 			return true;  //force program to quit
 		}
+		case SDL_KEYDOWN:  //user clicked on the 'X' in the window
+		{
+			if (theEvent->key.keysym.sym == SDLK_DOWN) {
+				m.Animate();
+
+				cout << "arrow down \n";
+			}
+
+		}
 		case SDL_MOUSEBUTTONDOWN:
 		{
 			if (SDL_GetMouseState(NULL, NULL) == SDL_BUTTON(1))  //Attach rotation to the left mouse button

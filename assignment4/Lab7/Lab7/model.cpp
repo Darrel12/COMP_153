@@ -22,6 +22,9 @@ Model::Model()
 	model_matrix = mat4(1.0);
 	view_matrix = mat4(1.0);
 	projection_matrix = mat4(1.0);
+	isSpinning = false;
+
+
 }
 
 //init() does all of the OpenGL and GLEW initialization.  
@@ -76,8 +79,9 @@ bool Model::init()
 	leftSide.init("images/yellow.bmp", green);
 	rightSide.init("images/yellow.bmp", green);
 	leftCap.init("images/blue.bmp", green);
-	rightCap.init("images/blue.bmp", green);
-	leftWheelFront.init("images/blue.bmp", green);
+	rightCap.init("images/cloud.bmp", green);
+	leftWheelFront.init("images/cloud.bmp", green);
+	WheelRightBackCircleSqr.init("images/cloud.bmp", green);
 
 	WheelLeftFrontCircle.init();
 	WheelRightFrontCircle.init();
@@ -97,6 +101,10 @@ bool Model::init()
 	return true;  //Everything got initialized
 }
 
+void Model::Animate() {
+	cout << "w";
+	isSpinning = true;
+}
 //draw() explains how to render your model
 void Model::draw(float xAngle, float yAngle)
 {
@@ -108,13 +116,14 @@ void Model::draw(float xAngle, float yAngle)
 
 	//Remember that the matrices are applied to vertices in the opposite order
 	//in which they are specified below (i.e. model_matrix is applied first)
-	mat4 PVMmatrix = projection_matrix * view_matrix * model_matrix;
+	//mat4 PVMmatrix = projection_matrix * view_matrix * model_matrix;
 	//glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
 	//tiger.draw();
 
+
 	model_matrix = translate(model_matrix, vec3(0.0f, 0.0f, 1.0f));
 	model_matrix = scale(model_matrix, vec3(1.5f, 0.5f, 1.0f));
-	//model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(1.0f, 0.0f, 0.0f));
+
 	PVMmatrix = projection_matrix * view_matrix * model_matrix;
 	glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
 	topOfBoard.draw();
@@ -166,26 +175,70 @@ void Model::draw(float xAngle, float yAngle)
 	//leftWheelFront.draw();
 
 	//below are the circle object
-	model_matrix = translate(model_matrix, vec3(1.0f, -0.8f, -0.3f));
-	PVMmatrix = projection_matrix * view_matrix * model_matrix;
-	glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
-	WheelLeftFrontCircle.draw();
+	//model_matrix = translate(model_matrix, vec3(1.0f, -0.8f, -0.3f));
+	if (isSpinning) {
+		model_matrix = translate(model_matrix, vec3(1.0f, -0.1f, 0.2f));
+		model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
+		PVMmatrix = projection_matrix * view_matrix * model_matrix;
+		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
+		WheelLeftFrontCircle.draw();
+	}
+	else {
+		model_matrix = translate(model_matrix, vec3(1.0f, -0.1f, 0.2f));
+		PVMmatrix = projection_matrix * view_matrix * model_matrix;
+		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
+		WheelLeftFrontCircle.draw();
+	}
+
+	if (isSpinning) {
+		model_matrix = translate(model_matrix, vec3(-16.0f, -0.0f, -0.0f));
+		//model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
+		PVMmatrix = projection_matrix * view_matrix * model_matrix;
+		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
+		WheelLeftBackCircle.draw();
+	}
+	else {
+		model_matrix = translate(model_matrix, vec3(-16.0f, -0.0f, -0.0f));
+		PVMmatrix = projection_matrix * view_matrix * model_matrix;
+		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
+		WheelLeftBackCircle.draw();
+	}
 
 
-	model_matrix = translate(model_matrix, vec3(-16.0f, -0.0f, -0.0f));
-	PVMmatrix = projection_matrix * view_matrix * model_matrix;
-	glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
-	WheelLeftBackCircle.draw();
+	if (isSpinning) {
+		model_matrix = translate(model_matrix, vec3(0.0f, -0.0f, 0.6f));
+		//model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
+		PVMmatrix = projection_matrix * view_matrix * model_matrix;
+		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
+		WheelRightFrontCircle.draw();
+	}
+	else {
+		model_matrix = translate(model_matrix, vec3(0.0f, -0.0f, 0.6f));
+		PVMmatrix = projection_matrix * view_matrix * model_matrix;
+		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
+		WheelRightFrontCircle.draw();
+	}
 
 
-	model_matrix = translate(model_matrix, vec3(0.0f, -0.0f, 0.6f));
-	PVMmatrix = projection_matrix * view_matrix * model_matrix;
-	glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
-	WheelRightFrontCircle.draw();
+	if (isSpinning) {
+		model_matrix = translate(model_matrix, vec3(16.0f, -0.0f, 0.0f));
+		//model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
+		PVMmatrix = projection_matrix * view_matrix * model_matrix;
+		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
+		WheelRightBackCircle.draw();
 
-	model_matrix = translate(model_matrix, vec3(16.0f, -0.0f, 0.0f));
-	PVMmatrix = projection_matrix * view_matrix * model_matrix;
-	glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
-	WheelRightBackCircle.draw();
+		//WheelRightFrontCircle.draw();
+
+	}
+	else {
+		model_matrix = translate(model_matrix, vec3(16.0f, -0.0f, 0.0f));
+		PVMmatrix = projection_matrix * view_matrix * model_matrix;
+		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
+		WheelRightBackCircle.draw();
+		//WheelRightBackCircleSqr.draw();
+
+	}
+
+
 	glFlush();
 }

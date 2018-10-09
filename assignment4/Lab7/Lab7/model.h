@@ -21,6 +21,11 @@ class Model
 		mat4 model_matrix;
 		mat4 view_matrix;
 		mat4 projection_matrix;
+		mat4 animate_matrix;
+
+
+		mat4 PVMmatrix = projection_matrix * view_matrix * model_matrix;
+		bool isSpinning;
 
 		TexModel tiger;
 		TexModel pacific;
@@ -31,10 +36,13 @@ class Model
 		TexModel leftCap;
 		TexModel rightCap;
 		TexModel leftWheelFront;
+
 		wheel WheelLeftFrontCircle;
 		wheel WheelRightFrontCircle;
 		wheel WheelLeftBackCircle;
 		wheel WheelRightBackCircle;
+
+		TexModel WheelRightBackCircleSqr;
 
 
 
@@ -46,6 +54,7 @@ class Model
 
 		bool init();  //initializes OpenGL, GLEW, and the objects we want to draw
 		void draw(float xAngle, float yAngle);  //renders the objects we want to draw
+		void Animate(); //the animation to be played
 };
 
 #endif

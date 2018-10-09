@@ -9,7 +9,6 @@ out vec4 color;
 out vec2 vs_tex_coord; //make a new out variable so that texture coordinate information can be available to the fragment shader 
 
 uniform mat4 PVM_matrix;  //Projection, View Orientation, and Modeling matrices all concatentated together
-
 void main()
 {
 	color = vertexColor;

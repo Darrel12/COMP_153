@@ -1,2 +1,2 @@
 ﻿  model.cpp
-  Lab7.vcxproj -> C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\assignment 4\COMP_153\assignment4\Lab7\Debug\Lab7.exe
+d:\googledrive\comp_153\comp_153\assignment4\lab7\lab7\model.cpp(9): fatal error C1083: Cannot open include file: 'glew.h': No such file or directory

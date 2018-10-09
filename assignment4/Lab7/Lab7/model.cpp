@@ -103,7 +103,13 @@ bool Model::init()
 
 void Model::Animate() {
 	cout << "w";
-	isSpinning = true;
+	if (isSpinning == false){
+		isSpinning = true;
+	}
+	else {
+		isSpinning = false;
+	}
+	
 }
 //draw() explains how to render your model
 void Model::draw(float xAngle, float yAngle)
@@ -174,68 +180,65 @@ void Model::draw(float xAngle, float yAngle)
 	glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
 	//leftWheelFront.draw();
 
-	//below are the circle object
-	//model_matrix = translate(model_matrix, vec3(1.0f, -0.8f, -0.3f));
 	if (isSpinning) {
+		// front left
 		model_matrix = translate(model_matrix, vec3(1.0f, -0.1f, 0.2f));
 		model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
 		PVMmatrix = projection_matrix * view_matrix * model_matrix;
 		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
 		WheelLeftFrontCircle.draw();
+
+		// back left
+		model_matrix = rotate(model_matrix, (float)(90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
+		model_matrix = translate(model_matrix, vec3(-16.0f, -0.0f, -0.0f));
+		model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
+		//model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
+		PVMmatrix = projection_matrix * view_matrix * model_matrix;
+		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
+		WheelLeftBackCircle.draw();
+
+		// front right
+		model_matrix = rotate(model_matrix, (float)(90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
+		model_matrix = translate(model_matrix, vec3(16.0f, -0.0f, 0.6f));
+		model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
+		//model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
+		PVMmatrix = projection_matrix * view_matrix * model_matrix;
+		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
+		WheelRightFrontCircle.draw();
+
+		// back right
+		model_matrix = rotate(model_matrix, (float)(90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
+		model_matrix = translate(model_matrix, vec3(-16.0f, -0.0f, 0.0f));
+		//model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
+		PVMmatrix = projection_matrix * view_matrix * model_matrix;
+		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
+		WheelRightBackCircle.draw();
 	}
 	else {
+		// front left
 		model_matrix = translate(model_matrix, vec3(1.0f, -0.1f, 0.2f));
 		PVMmatrix = projection_matrix * view_matrix * model_matrix;
 		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
 		WheelLeftFrontCircle.draw();
-	}
 
-	if (isSpinning) {
-		model_matrix = translate(model_matrix, vec3(-16.0f, -0.0f, -0.0f));
-		//model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
-		PVMmatrix = projection_matrix * view_matrix * model_matrix;
-		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
-		WheelLeftBackCircle.draw();
-	}
-	else {
+		// back left
 		model_matrix = translate(model_matrix, vec3(-16.0f, -0.0f, -0.0f));
 		PVMmatrix = projection_matrix * view_matrix * model_matrix;
 		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
 		WheelLeftBackCircle.draw();
-	}
 
-
-	if (isSpinning) {
-		model_matrix = translate(model_matrix, vec3(0.0f, -0.0f, 0.6f));
-		//model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
-		PVMmatrix = projection_matrix * view_matrix * model_matrix;
-		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
-		WheelRightFrontCircle.draw();
-	}
-	else {
+		// front right
 		model_matrix = translate(model_matrix, vec3(0.0f, -0.0f, 0.6f));
 		PVMmatrix = projection_matrix * view_matrix * model_matrix;
 		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
 		WheelRightFrontCircle.draw();
-	}
 
 
-	if (isSpinning) {
-		model_matrix = translate(model_matrix, vec3(16.0f, -0.0f, 0.0f));
-		//model_matrix = rotate(model_matrix, (float)(-90.0*(3.14159 / 180.0)), vec3(0.0f, 0.0f, 1.0f));
-		PVMmatrix = projection_matrix * view_matrix * model_matrix;
-		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
-		WheelRightBackCircle.draw();
-
-		//WheelRightFrontCircle.draw();
-
-	}
-	else {
+		// back right
 		model_matrix = translate(model_matrix, vec3(16.0f, -0.0f, 0.0f));
 		PVMmatrix = projection_matrix * view_matrix * model_matrix;
 		glUniformMatrix4fv(PVM_matrixLoc, 1, GL_FALSE, value_ptr(PVMmatrix));
 		WheelRightBackCircle.draw();
-		//WheelRightBackCircleSqr.draw();
 
 	}
 

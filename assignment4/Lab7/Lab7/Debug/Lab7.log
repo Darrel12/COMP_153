@@ -1,2 +1,8 @@
-﻿  model.cpp
+﻿  main.cpp
+  viewcontroller.cpp
+d:\googledrive\comp_153\comp_153\assignment4\lab7\lab7\viewcontroller.cpp(101): warning C4244: '=': conversion from 'Sint32' to 'float', possible loss of data
+d:\googledrive\comp_153\comp_153\assignment4\lab7\lab7\viewcontroller.cpp(102): warning C4244: '=': conversion from 'Sint32' to 'float', possible loss of data
+d:\googledrive\comp_153\comp_153\assignment4\lab7\lab7\viewcontroller.cpp(126): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\googledrive\comp_153\comp_153\assignment4\lab7\lab7\viewcontroller.cpp(127): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Generating Code...
   Lab7.vcxproj -> D:\GoogleDrive\COMP_153\COMP_153\assignment4\Lab7\Debug\Lab7.exe
